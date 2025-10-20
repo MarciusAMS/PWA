@@ -1,0 +1,155 @@
+/* Importa fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #0f0f0f; /* Preto suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Container principal */
+#container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+/* Caixa de login */
+#login-box {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Logo */
+#logo {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+/* Título e subtítulo */
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.grupo,
+form div {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #222;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #111;
+  outline: none;
+}
+
+/* Botões */
+button[type="submit"],
+#installBtn {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* Botão de instalar app */
+#installBtn {
+  margin-bottom: 15px;
+  display: none; /* Controlado via JS */
+  background: #27ae60;
+}
+
+#installBtn:hover {
+  background: #219653;
+}
+
+/* Links */
+#links {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+#links a {
+  font-size: 14px;
+  color: #111;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#links a:hover {
+  color: #ff4081; /* rosa neon para destacar */
+  text-decoration: underline;
+}
+
+/* Responsivo para celular */
+@media (max-width: 480px) {
+  #login-box {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  #links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
