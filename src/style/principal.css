@@ -1,0 +1,168 @@
+/* Importa a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset e configurações base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+header {
+  background-color: #111;
+  padding: 15px 0;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  height: 40px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.logout-button {
+  color: #ff6600;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid #ff6600;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+/* --- Seção Hero --- */
+.hero {
+  background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url(https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2070&auto=format&fit=crop) no-repeat center center/cover;
+  padding: 80px 0;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ccc;
+}
+
+/* --- Grid de Motos --- */
+.bikes-grid {
+  padding: 60px 0;
+}
+
+.bikes-grid h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.bike-card {
+  background-color: #2b2b2b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.bike-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(255, 102, 0, 0.2);
+}
+
+.bike-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.card-content p {
+  color: #ccc;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-content button {
+  width: 100%;
+  padding: 12px;
+  background: #ff6600;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: auto; /* Alinha o botão na base do card */
+}
+
+.card-content button:hover {
+  background: #e65c00;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+}

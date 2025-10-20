@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWA - Motor Company</title>
-    <!-- Caminhos corrigidos para apontar para o diretório raiz (../) -->
+    <!-- Usando o CSS de formulários para manter a consistência visual -->
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="manifest" href="/manifest.json">
 </head>
@@ -14,12 +14,15 @@
     <button id="installBtn" style="display: none;">Instale o App</button>
     <div id="container">
         <div id="login-box">
-            <!-- Caminho da imagem corrigido para a pasta 'assets' -->
-            <img src="../../assets/logo.png" id="logo">
+            <img src="../../assets/logo.png" id="logo" alt="Logo da Motor Company">
             <h1>Bem Vindo ao Motor Company</h1>
             <p>Faça login para continuar</p>
 
-            <form action="principal.html" method="post">
+            <!-- Mensagem de erro que aparecerá se o login falhar -->
+            <p id="error-message" style="color: #ff6600; font-weight: bold; display: none; margin-bottom: 15px;">Credenciais inválidas. Tente novamente.</p>
+
+            <!-- AÇÃO DO FORMULÁRIO CORRIGIDA -->
+            <form action="../controllers/login.php" method="post">
                 <div class="grupo">
                     <label>E-mail</label>
                     <input type="email" name="email" placeholder="Digite seu e-mail" required>
@@ -31,13 +34,22 @@
                 <button type="submit">Entrar</button>
             </form>
             <div id="links">
-                <a href="register.html">Criar conta</a>
-                <a href="esqueci.html">Esqueci minha senha</a>
+                <a href="cadastro.html">Criar conta</a>
+                <a href="">Esqueci minha senha</a>
             </div>
         </div>
     </div>
-    <!-- Caminho do script corrigido para apontar para o diretório raiz -->
-    <script src="script.js"></script>
+
+    <!-- Script para exibir a mensagem de erro -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    </script>
+    
+    <!-- Caminho do script principal corrigido para a raiz do projeto -->
+    <script src="../../script.js"></script>
 
 </body>
 
