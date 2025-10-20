@@ -1,7 +1,7 @@
-/* Importa fonte moderna */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+/* Importa a fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Reset e base */
+/* Reset e configurações base */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,8 @@
 }
 
 body {
-  background-color: #0f0f0f; /* Preto suave */
+  background-color: #1a1a1a; /* Tom de cinza escuro um pouco mais suave */
+  color: #f5f5f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,138 +19,144 @@ body {
   padding: 20px;
 }
 
-/* Container principal */
 #container {
   width: 100%;
-  max-width: 420px;
+  max-width: 380px;
   padding: 20px;
-}
-
-/* Caixa de login */
-#login-box {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 40px 30px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-/* Logo */
-#logo {
-  width: 80px;
-  margin-bottom: 20px;
+#login-box {
+  background: transparent;
 }
 
-/* Título e subtítulo */
+/* --- AJUSTE NO LOGO --- */
+#logo {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 30px;
+  /* --- ADICIONADO PARA CRIAR A MOLDURA --- */
+  background-color: #ffffff; /* Fundo branco */
+  padding: 10px;               /* Espaçamento interno para a moldura */
+  border-radius: 8px;          /* Cantos arredondados */
+  /* Se o seu logo for branco, ele pode "sumir". Se isso acontecer, */
+  /* remova o comentário da linha abaixo para torná-lo preto: */
+  /* filter: invert(1); */
+}
+
+
+/* Títulos e parágrafos */
 h1 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 8px;
+  font-size: 28px; /* Um pouco maior */
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
 }
 
 p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 25px;
+  font-size: 16px; /* Um pouco maior */
+  color: #9e9e9e; /* Cinza mais sutil */
+  margin-bottom: 40px; /* Mais espaço */
 }
 
-/* Inputs */
-.grupo,
-form div {
+/* Grupos de formulário (label + input) */
+.grupo {
   text-align: left;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 label {
   display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #222;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #e0e0e0;
 }
 
 input[type="email"],
 input[type="password"] {
   width: 100%;
-  padding: 12px;
+  padding: 15px; /* Mais preenchimento interno */
   border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  transition: border-color 0.3s ease;
-  background-color: #f9f9f9;
+  border: 1px solid #424242; /* Borda um pouco mais visível */
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #333333 inset !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #888;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #111;
+  border-color: #ff6600;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.2); /* Sombra de foco */
 }
 
-/* Botões */
-button[type="submit"],
-#installBtn {
+/* Botão principal */
+button[type="submit"] {
   width: 100%;
-  padding: 12px;
-  background: #111;
-  color: white;
+  padding: 15px;
+  background: #ff6600;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600; /* Um pouco menos bold para mais clareza */
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 15px; /* Mais espaço acima */
 }
 
 button[type="submit"]:hover {
-  background: #222;
+  background: #e65c00;
   transform: translateY(-2px);
 }
 
-/* Botão de instalar app */
-#installBtn {
-  margin-bottom: 15px;
-  display: none; /* Controlado via JS */
-  background: #27ae60;
-}
-
-#installBtn:hover {
-  background: #219653;
-}
-
-/* Links */
+/* Links inferiores */
 #links {
-  margin-top: 25px;
+  margin-top: 35px; /* Mais espaço */
   display: flex;
   justify-content: space-between;
-  gap: 15px;
+  padding: 0 10px; /* Pequeno espaçamento lateral */
 }
 
 #links a {
   font-size: 14px;
-  color: #111;
+  color: #ff6600;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 #links a:hover {
-  color: #ff4081; /* rosa neon para destacar */
   text-decoration: underline;
 }
 
-/* Responsivo para celular */
-@media (max-width: 480px) {
-  #login-box {
-    padding: 30px 20px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  #links {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Botão de Instalação (se visível) */
+#installBtn {
+  width: 100%;
+  padding: 12px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 20px;
 }
+

@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWA - Motor Company</title>
-    <link rel="stylesheet" href="/style/styles.css">
+    <!-- Caminhos corrigidos para apontar para o diretório raiz (../) -->
+    <link rel="stylesheet" href="../style/styles.css">
     <link rel="manifest" href="/manifest.json">
 </head>
 
 <body>
-    <button id="installBtn" style="display: none;" hidden>Instale o App</button>
+    <button id="installBtn" style="display: none;">Instale o App</button>
     <div id="container">
         <div id="login-box">
-            <img src="logo.png" id="logo">
+            <!-- Caminho da imagem corrigido para a pasta 'assets' -->
+            <img src="../../assets/logo.png" id="logo">
             <h1>Bem Vindo ao Motor Company</h1>
             <p>Faça login para continuar</p>
 
@@ -22,9 +24,9 @@
                     <label>E-mail</label>
                     <input type="email" name="email" placeholder="Digite seu e-mail" required>
                 </div>
-                <div>
+                <div class="grupo">
                     <label>Senha</label>
-                    <input type="password" name="senha" required>
+                    <input type="password" name="senha" placeholder="Digite sua senha" required>
                 </div>
                 <button type="submit">Entrar</button>
             </form>
@@ -34,7 +36,10 @@
             </div>
         </div>
     </div>
+    <!-- Caminho do script corrigido para apontar para o diretório raiz -->
+    <script src="script.js"></script>
+
 </body>
-<script src="/script.js"></script>
 
 </html>
+
