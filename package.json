@@ -1,0 +1,18 @@
+{
+  "name": "motor-company",
+  "version": "1.0.0",
+  "description": "Servidor de desenvolvimento para o projeto Motor Company.",
+  "main": "index.html",
+  "scripts": {
+    "start:php": "php -S localhost:8000 -t",
+    "watch": "browser-sync start --proxy 'localhost:8000' --files '**/*.css, **/*.html, **/*.js, **/*.php'",
+    "dev": "concurrently \"npm run start:php\" \"npm run watch\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "concurrently": "^8.2.2"
+  }
+}
