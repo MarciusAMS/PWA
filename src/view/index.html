@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PWA - Motor Company</title>
-    <!-- Usando o CSS de formulários para manter a consistência visual -->
     <link rel="stylesheet" href="../style/styles.css">
     <link rel="manifest" href="/manifest.json">
 </head>
@@ -18,10 +17,9 @@
             <h1>Bem Vindo ao Motor Company</h1>
             <p>Faça login para continuar</p>
 
-            <!-- Mensagem de erro que aparecerá se o login falhar -->
-            <p id="error-message" style="color: #ff6600; font-weight: bold; display: none; margin-bottom: 15px;">Credenciais inválidas. Tente novamente.</p>
+            <p id="error-message" style="color: #ff6600; font-weight: bold; display: none; margin-bottom: 15px;">
+                Credenciais inválidas. Tente novamente.</p>
 
-            <!-- AÇÃO DO FORMULÁRIO CORRIGIDA -->
             <form action="../controllers/login.php" method="post">
                 <div class="grupo">
                     <label>E-mail</label>
@@ -40,18 +38,15 @@
         </div>
     </div>
 
-    <!-- Script para exibir a mensagem de erro -->
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('error')) {
             document.getElementById('error-message').style.display = 'block';
         }
     </script>
-    
-    <!-- Caminho do script principal corrigido para a raiz do projeto -->
+
     <script src="../../script.js"></script>
 
 </body>
 
 </html>
-
