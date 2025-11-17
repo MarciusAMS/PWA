@@ -2,7 +2,7 @@
 
 require_once '../../db/conexao.php';
 
-$sql = "SELECT id, nome_empresa, modelo, valor FROM motocicletas ORDER BY id ASC";
+$sql = "SELECT id, nome_empresa, modelo, valor, descricao FROM motocicletas ORDER BY id ASC";
 $resultado = mysqli_query($link, $sql);
 
 if (!$resultado) {
@@ -34,6 +34,7 @@ if (!$resultado) {
                     <th>Empresa</th>
                     <th>Modelo</th>
                     <th>Valor (R$)</th>
+                    <th>Descrição</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,10 +50,11 @@ if (!$resultado) {
                         echo "<td>" . htmlspecialchars($moto['nome_empresa']) . "</td>";
                         echo "<td>" . htmlspecialchars($moto['modelo']) . "</td>";
                         echo "<td>" . htmlspecialchars($valor_formatado) . "</td>";
+                        echo "<td>" . htmlspecialchars($moto['descricao'] ) . "</td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr class='no-results'><td colspan='4'>Nenhuma motocicleta cadastrada no momento.</td></tr>";
+                    echo "<tr class='no-results'><td colspan='5'>Nenhuma motocicleta cadastrada no momento.</td></tr>";
                 }
                 mysqli_close($link);
                 ?>
