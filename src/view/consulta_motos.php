@@ -18,6 +18,7 @@ if (!$resultado) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultar Motocicletas - Motor Company</title>
      <link rel="stylesheet" href="../style/consulta_motos.css">
+     <link rel="manifest" href="../../manifest.json">
 </head>
 
 <body>
@@ -40,11 +41,8 @@ if (!$resultado) {
             <tbody>
                 <?php
                 if (mysqli_num_rows($resultado) > 0) {
-                    // Loop para exibir cada motocicleta
                     while ($moto = mysqli_fetch_assoc($resultado)) {
-                        // Formata o valor para o padrão brasileiro
                         $valor_formatado = number_format($moto['valor'], 2, ',', '.');
-                        
                         echo "<tr>";
                         echo "<td>" . htmlspecialchars($moto['id']) . "</td>";
                         echo "<td>" . htmlspecialchars($moto['nome_empresa']) . "</td>";
@@ -62,6 +60,8 @@ if (!$resultado) {
         </table>
 
     </div>
+
+    <script src="../../script.js"></script>
 </body>
 
 </html>

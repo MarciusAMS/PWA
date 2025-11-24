@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Motocicleta - Motor Company</title>
-    <!-- CSS atualizado para o botão de IA -->
     <link rel="stylesheet" href="../style/cadastro_moto.css">
     <link rel="manifest" href="../../manifest.json">
 </head>
@@ -14,11 +13,10 @@
     <div id="container">
         <div id="login-box">
             <a href="principal.html" class="back-link">&larr; Voltar para a principal</a>
-            
+
             <h1>Cadastrar Motocicleta</h1>
             <p>Preencha os dados da nova motocicleta.</p>
 
-            <!-- O action aponta para o script que SALVA no banco -->
             <form action="../controllers/cadastro_moto.php" method="post">
                 <div class="grupo">
                     <label for="nome_empresa">Marca / Empresa</label>
@@ -36,15 +34,16 @@
                 <!-- CAMPO DE DESCRIÇÃO DA IA -->
                 <div class="grupo">
                     <label for="descricao">Descrição</label>
-                    <textarea id="descricao" name="descricao" rows="6" placeholder="Clique no botão abaixo para gerar a descrição..."></textarea>
-                    
+                    <textarea id="descricao" name="descricao" rows="6"
+                        placeholder="Clique no botão abaixo para gerar a descrição..."></textarea>
+
                     <!-- Botão para acionar a IA (PHP) -->
                     <button type="button" id="btn-gerar-ia" class="btn-ia">
                         <span id="ia-text">Gerar Descrição com IA</span>
                         <span id="ia-loader" class="loader" style="display:none;"></span>
                     </button>
                 </div>
-                
+
                 <button type="submit">Cadastrar Moto</button>
             </form>
         </div>
@@ -57,7 +56,7 @@
 
         // Espera o DOM carregar (boa prática)
         document.addEventListener('DOMContentLoaded', () => {
-            
+
             // Checkpoint 2: O DOM carregou.
             console.log('DOM carregado. Procurando o botão...');
 
@@ -68,7 +67,7 @@
 
             if (btnGerarIa) {
                 btnGerarIa.addEventListener('click', () => {
-                    
+
                     // Checkpoint 4: O botão foi CLICADO!
                     console.log('Botão de IA clicado!');
 
@@ -101,39 +100,39 @@
                             modelo: modelo
                         })
                     })
-                    .then(response => {
-                        // Checkpoint 6: O PHP respondeu!
-                        console.log('Resposta do PHP recebida:', response);
-                        if (!response.ok) {
-                            throw new Error('Erro na resposta do servidor PHP (ver aba Network para detalhes)');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        // Checkpoint 7: Resposta JSON processada.
-                        console.log('Dados JSON recebidos:', data);
-                        
-                        if (data.descricao) {
-                            descricaoTextarea.value = data.descricao;
-                        } else if (data.erro) {
-                            throw new Error(data.erro);
-                        } else {
-                            throw new Error('Resposta do PHP não continha a "descricao".');
-                        }
-                    })
-                    .catch(error => {
-                        // Checkpoint 8: Ocorreu um ERRO.
-                        console.error('Erro no processo de fetch:', error);
-                        descricaoTextarea.value = `Falha ao gerar a descrição: ${error.message}. Verifique o console.`;
-                    })
-                    .finally(() => {
-                        // Checkpoint 9: Finalizando (limpando o loading).
-                        console.log('Processo finalizado.');
-                        btnText.style.display = 'inline';
-                        btnLoader.style.display = 'none';
-                    });
+                        .then(response => {
+                            // Checkpoint 6: O PHP respondeu!
+                            console.log('Resposta do PHP recebida:', response);
+                            if (!response.ok) {
+                                throw new Error('Erro na resposta do servidor PHP (ver aba Network para detalhes)');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Checkpoint 7: Resposta JSON processada.
+                            console.log('Dados JSON recebidos:', data);
+
+                            if (data.descricao) {
+                                descricaoTextarea.value = data.descricao;
+                            } else if (data.erro) {
+                                throw new Error(data.erro);
+                            } else {
+                                throw new Error('Resposta do PHP não continha a "descricao".');
+                            }
+                        })
+                        .catch(error => {
+                            // Checkpoint 8: Ocorreu um ERRO.
+                            console.error('Erro no processo de fetch:', error);
+                            descricaoTextarea.value = `Falha ao gerar a descrição: ${error.message}. Verifique o console.`;
+                        })
+                        .finally(() => {
+                            // Checkpoint 9: Finalizando (limpando o loading).
+                            console.log('Processo finalizado.');
+                            btnText.style.display = 'inline';
+                            btnLoader.style.display = 'none';
+                        });
                 });
-                
+
                 // Checkpoint 3.1: O "ouvinte" foi adicionado.
                 console.log('Ouvinte de clique adicionado ao botão.');
             } else {
@@ -141,5 +140,8 @@
             }
         });
     </script>
+
+    <script src="../../script.js"></script>
 </body>
+
 </html>
